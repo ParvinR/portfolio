@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<!--
+  resume.html — Resume Page
+  ──────────────────────────
+  Displays a PDF resume with two options:
+    - Download PDF button (saves the file to the user's computer)
+    - Open in New Tab button (shows it in the browser's PDF viewer)
+  The embedded <iframe> renders the PDF inline on the page.
+  Until assets/resume.pdf exists, a placeholder message is shown.
+
+  TO ADD YOUR RESUME:
+    1. Place your PDF at assets/resume.pdf
+    2. Remove the <div id="resume-placeholder"> block
+    3. Uncomment the <iframe> block below it
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Resume of Parvin V Ramroop — CS senior, researcher, and embedded systems engineer." />
+  <title>Resume — Parvin V Ramroop</title>
+
+  <!-- Google Fonts. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome for the download and file icons. -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Shared stylesheet. -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════
+       NAVBAR
+       "active" is on the Resume link since we're on resume.html.
+       ══════════════════════════════════════════ -->
+  <nav class="navbar" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo">PVR<span>.</span></a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="resume.html" class="active">Resume</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ══════════════════════════════════════════
+         PAGE HERO
+         Short header introducing the resume page.
+         ══════════════════════════════════════════ -->
+    <header class="page-hero">
+      <div class="container fade-in">
+        <span class="section-label">Resume</span>
+        <h1>Curriculum Vitae</h1>
+        <p>Download or view my full resume below.</p>
+      </div>
+    </header>
+
+
+    <!-- ══════════════════════════════════════════
+         RESUME SECTION
+         Download/open buttons followed by the embedded PDF viewer.
+         ══════════════════════════════════════════ -->
+    <section class="resume-section">
+      <div class="container">
+
+        <!-- Two action buttons above the PDF area. -->
+        <div class="resume-actions fade-in">
+
+          <!-- "download" attribute tells the browser to save the file
+               instead of opening it, and names the saved file. -->
+          <a href="assets/resume.pdf" download class="btn btn-primary">
+            <i class="fa-solid fa-download" aria-hidden="true"></i> Download PDF
+          </a>
+
+          <!-- Opens the PDF in a new browser tab using the browser's built-in PDF viewer. -->
+          <a href="assets/resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+            <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Open in New Tab
+          </a>
+
+        </div>
+
+        <!-- The PDF embed container. -->
+        <div class="resume-embed fade-in">
+
+          <!-- PLACEHOLDER: Shown when assets/resume.pdf doesn't exist yet.
+               Remove this block and uncomment the <iframe> below once the PDF is ready. -->
+          <div class="resume-placeholder" id="resume-placeholder">
+            <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
+            <h3 style="font-family: var(--font-display); margin-bottom: 0.5rem;">Resume PDF</h3>
+            <p>Add <code style="font-family: var(--font-mono); color: var(--accent-light);">assets/resume.pdf</code> to display the embedded resume here.</p>
+            <a href="contact.html" class="btn btn-outline">
+              <i class="fa-solid fa-envelope" aria-hidden="true"></i> Contact Me Instead
+            </a>
+          </div>
+
+          <!-- IFRAME: Renders the PDF inline on the page.
+               To activate: remove the placeholder above and uncomment this block.
+               The browser's built-in PDF viewer handles the display automatically. -->
+          <!--
+          <iframe
+            src="assets/resume.pdf"
+            title="Parvin V Ramroop Resume"
+            aria-label="Resume PDF viewer">
+          </iframe>
+          -->
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ══════════════════════════════════════════
+       FOOTER — same on every page.
+       ══════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-social">
+        <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <i class="fa-brands fa-github"></i>
+        </a>
+        <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+        <a href="mailto:parvin091999@gmail.com" aria-label="Email">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+      </div>
+      <p>&copy; 2025 Parvin V Ramroop. Built with HTML, CSS &amp; JavaScript.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

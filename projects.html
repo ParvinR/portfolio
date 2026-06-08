@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<!--
+  projects.html — Projects Page
+  ──────────────────────────────
+  Full detail cards for all three projects:
+    1. Bayesian Optimization: Dynamic Mobile Observer Coverage (research)
+    2. Diabetes Predictor (group ML project)
+    3. Interactive React Multi-AI Tool (personal project)
+
+  Each card has an id anchor (e.g., id="bayesian") so the homepage
+  preview cards can link directly to the right entry with #bayesian.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Projects by Parvin V Ramroop — Bayesian Optimization research, ML classifiers, and React tools." />
+  <title>Projects — Parvin V Ramroop</title>
+
+  <!-- Google Fonts. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+
+  <!-- Icon libraries. -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" />
+
+  <!-- Shared stylesheet. -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════
+       NAVBAR
+       "active" is on the Projects link since we're on projects.html.
+       ══════════════════════════════════════════ -->
+  <nav class="navbar" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo">PVR<span>.</span></a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html" class="active">Projects</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ══════════════════════════════════════════
+         PAGE HERO
+         Short introduction header at the top of the page.
+         ══════════════════════════════════════════ -->
+    <header class="page-hero">
+      <div class="container fade-in">
+        <span class="section-label">Work</span>
+        <h1>Projects</h1>
+        <p>Research, engineering, and software projects spanning ML, web, and systems.</p>
+      </div>
+    </header>
+
+
+    <!-- ══════════════════════════════════════════
+         PROJECTS GRID
+         Auto-fill grid of full-detail project cards.
+         Each card has:
+           - An icon square
+           - A metadata line (project type + institution)
+           - A title
+           - One or two description paragraphs
+           - Technology tag pills
+           - A GitHub link
+         ══════════════════════════════════════════ -->
+    <section class="section">
+      <div class="container">
+
+        <!-- .projects-full-grid uses auto-fill so cards wrap naturally.
+             Each card is at least 320px wide. -->
+        <div class="projects-full-grid">
+
+          <!-- ── PROJECT 1: Bayesian Optimization ──
+               id="bayesian" lets the homepage "Details" link jump straight here. -->
+          <article class="project-card-full fade-in" id="bayesian">
+
+            <!-- Icon square at the top. -->
+            <div class="project-icon" aria-hidden="true">
+              <i class="fa-solid fa-chart-line"></i>
+            </div>
+
+            <!-- Metadata line: project type and where it was done. -->
+            <p class="project-meta">Undergraduate Research &mdash; Queens College, CUNY</p>
+
+            <h3>Bayesian Optimization: Dynamic Mobile Observer Coverage</h3>
+
+            <!-- Description paragraphs — more detail than the homepage preview. -->
+            <p>
+              Research project supervised by Prof. Bon Sy. The work addresses the parameter
+              tuning problem for a dynamic mobile observer coverage model — specifically
+              optimizing the parameters K (number of observers), v (velocity), and R (coverage
+              radius) to maximize area coverage efficiency.
+            </p>
+            <p>
+              The approach applies Gaussian Processes as a surrogate model with Expected
+              Improvement as the acquisition function. Experiments were implemented using
+              <!-- <code> wraps inline code/library names for monospace styling. -->
+              <code style="font-family: var(--font-mono); color: var(--accent-light); font-size: 0.85em;">scikit-optimize</code>
+              and <code style="font-family: var(--font-mono); color: var(--accent-light); font-size: 0.85em;">GPyOpt</code>,
+              with data manipulation and visualization through NumPy, Pandas, and Matplotlib.
+            </p>
+
+            <!-- Technology tag pills. -->
+            <div class="project-tags" aria-label="Technologies used">
+              <span class="tag">Python</span>
+              <span class="tag">Gaussian Processes</span>
+              <span class="tag">scikit-optimize</span>
+              <span class="tag">GPyOpt</span>
+              <span class="tag">NumPy</span>
+              <span class="tag">Pandas</span>
+              <span class="tag">Matplotlib</span>
+            </div>
+
+            <!-- GitHub link — update href to the real repo URL. -->
+            <div class="project-links">
+              <a href="https://github.com/" class="project-link" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-github" aria-hidden="true"></i> GitHub
+              </a>
+            </div>
+
+          </article>
+
+
+          <!-- ── PROJECT 2: Diabetes Predictor ──
+               id="diabetes" lets the homepage link jump here. -->
+          <article class="project-card-full fade-in" id="diabetes">
+
+            <div class="project-icon" aria-hidden="true">
+              <i class="fa-solid fa-heart-pulse"></i>
+            </div>
+
+            <p class="project-meta">Group Project &mdash; Machine Learning</p>
+
+            <h3>Diabetes Predictor</h3>
+
+            <p>
+              A machine learning classifier built collaboratively to predict diabetes onset
+              from clinical features. The project explored multiple classification algorithms
+              including Logistic Regression, Decision Trees, Random Forests, and SVM.
+            </p>
+            <p>
+              The pipeline included data preprocessing (imputation, scaling, train/test splits),
+              model evaluation via cross-validation and confusion matrices, and comparative
+              analysis of precision, recall, and F1 scores across models.
+            </p>
+
+            <div class="project-tags" aria-label="Technologies used">
+              <span class="tag">Python</span>
+              <span class="tag">scikit-learn</span>
+              <span class="tag">Pandas</span>
+              <span class="tag">Matplotlib</span>
+              <span class="tag">NumPy</span>
+            </div>
+
+            <div class="project-links">
+              <a href="https://github.com/" class="project-link" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-github" aria-hidden="true"></i> GitHub
+              </a>
+            </div>
+
+          </article>
+
+
+          <!-- ── PROJECT 3: React Multi-AI Tool ──
+               id="multiai" lets the homepage link jump here. -->
+          <article class="project-card-full fade-in" id="multiai">
+
+            <div class="project-icon" aria-hidden="true">
+              <i class="fa-solid fa-robot"></i>
+            </div>
+
+            <p class="project-meta">Personal Project &mdash; Full-Stack Web</p>
+
+            <h3>Interactive React Multi-AI Tool</h3>
+
+            <p>
+              A React-based web application that enables structured, multi-round collaboration
+              between Claude (Anthropic) and ChatGPT (OpenAI). Users can chain model responses,
+              compare outputs side-by-side, and manage conversational context across different
+              AI systems in a single interface.
+            </p>
+            <p>
+              Built with functional React components and hooks, the tool handles API integration,
+              conversation state management, and a clean UI for directing prompts to specific
+              models or routing one model's output as the next model's input.
+            </p>
+
+            <div class="project-tags" aria-label="Technologies used">
+              <span class="tag">React</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">API Integration</span>
+              <span class="tag">CSS</span>
+              <span class="tag">Hooks</span>
+            </div>
+
+            <div class="project-links">
+              <a href="https://github.com/" class="project-link" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-github" aria-hidden="true"></i> GitHub
+              </a>
+            </div>
+
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ══════════════════════════════════════════
+       FOOTER — same on every page.
+       ══════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-social">
+        <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <i class="fa-brands fa-github"></i>
+        </a>
+        <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+        <a href="mailto:parvin091999@gmail.com" aria-label="Email">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+      </div>
+      <p>&copy; 2025 Parvin V Ramroop. Built with HTML, CSS &amp; JavaScript.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

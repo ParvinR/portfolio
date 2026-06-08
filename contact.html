@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<!--
+  contact.html — Contact Page
+  ────────────────────────────
+  Full contact page with:
+    - Left column: intro text, social links, availability note
+    - Right column: full contact form (Name, Email, Subject, Message)
+  The form has four fields here vs. three on the homepage.
+  JavaScript in main.js handles validation and the success state.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contact Parvin V Ramroop — reach out for opportunities, collaboration, or questions." />
+  <title>Contact — Parvin V Ramroop</title>
+
+  <!-- Google Fonts. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome for envelope, GitHub, LinkedIn icons. -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Shared stylesheet. -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════
+       NAVBAR
+       "active" is on the Contact link since we're on contact.html.
+       ══════════════════════════════════════════ -->
+  <nav class="navbar" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo">PVR<span>.</span></a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ══════════════════════════════════════════
+         PAGE HERO
+         Short header introducing the contact page.
+         ══════════════════════════════════════════ -->
+    <header class="page-hero">
+      <div class="container fade-in">
+        <span class="section-label">Contact</span>
+        <h1>Get In Touch</h1>
+        <p>Open to internships, entry-level roles, and research collaborations.</p>
+      </div>
+    </header>
+
+
+    <!-- ══════════════════════════════════════════
+         CONTACT SECTION
+         Two-column layout:
+           Left  — info, social links, availability note
+           Right — contact form
+         On mobile (≤900px) these stack into one column.
+         ══════════════════════════════════════════ -->
+    <section class="section">
+      <div class="container">
+        <div class="contact-grid fade-in">
+
+          <!-- ── Left column: info and links ── -->
+          <div class="contact-info">
+            <span class="section-label">Reach Out</span>
+            <h2>Let's talk</h2>
+
+            <!-- Intro paragraphs explaining what kinds of contact are welcome. -->
+            <p>
+              I'm actively seeking internship and entry-level opportunities in embedded systems
+              and defense/aerospace engineering. I'm also open to research collaboration and
+              networking with professionals in the field.
+            </p>
+            <p>I typically respond within 24 hours.</p>
+
+            <!-- Stack of direct contact links — email, GitHub, LinkedIn. -->
+            <div class="contact-links" style="margin-top: 2rem;">
+              <!-- mailto: opens the user's default email client. -->
+              <a href="mailto:parvin091999@gmail.com" class="contact-link">
+                <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                parvin091999@gmail.com
+              </a>
+              <a href="https://github.com/" class="contact-link" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-github" aria-hidden="true"></i>
+                github.com/parvinramroop
+              </a>
+              <a href="https://linkedin.com/" class="contact-link" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+                linkedin.com/in/parvinramroop
+              </a>
+            </div>
+
+            <!-- Availability callout box — thick purple left border draws the eye. -->
+            <div style="margin-top: 2.5rem; padding: 1.25rem 1.5rem; background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: var(--radius-sm);">
+              <p style="font-size: 0.9rem; margin: 0;">
+                <strong style="color: var(--accent-light);">Availability:</strong>
+                Currently completing my BS at Queens College. Available for internships,
+                part-time roles, and research positions.
+              </p>
+            </div>
+
+          </div>
+
+
+          <!-- ── Right column: the contact form ──
+               id="contact-form" is used by main.js to attach the submit handler.
+               action points to Formspree — replace YOUR_FORM_ID with your real form ID.
+               novalidate tells the browser not to show its own validation UI;
+               our JavaScript handles all validation instead. -->
+          <form class="contact-form" id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+
+            <!-- FIELD: Name
+                 label[for] and input[id] must match — this connects them for accessibility.
+                 Clicking the label focuses the input. Screen readers announce the label
+                 when the field is focused. -->
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your full name" autocomplete="name" />
+              <!-- Error message span: empty by default.
+                   JS writes the error text here and adds the "visible" class to show it. -->
+              <span class="form-error" role="alert"></span>
+            </div>
+
+            <!-- FIELD: Email
+                 type="email" gives mobile keyboards the @ symbol for convenience. -->
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="your@email.com" autocomplete="email" />
+              <span class="form-error" role="alert"></span>
+            </div>
+
+            <!-- FIELD: Subject (this field only exists on contact.html, not on index.html).
+                 main.js detects whether this field is present before validating it. -->
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" placeholder="Internship inquiry, collaboration, etc." />
+              <span class="form-error" role="alert"></span>
+            </div>
+
+            <!-- FIELD: Message
+                 <textarea> is a multi-line input. rows="6" sets the initial visible height.
+                 CSS allows the user to resize it vertically (resize: vertical). -->
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="6" placeholder="Tell me about the opportunity or what you'd like to discuss..."></textarea>
+              <span class="form-error" role="alert"></span>
+            </div>
+
+            <!-- Submit button — triggers the JS validation on click. -->
+            <button type="submit" class="btn btn-primary">
+              <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Send Message
+            </button>
+
+            <!-- Success banner: hidden by default (display:none in CSS).
+                 JS hides the form and adds "visible" here after a valid submission.
+                 role="status" causes screen readers to announce the message automatically. -->
+            <div class="form-success" id="form-success" role="status">
+              <i class="fa-solid fa-circle-check"></i> Message sent! I'll be in touch soon.
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ══════════════════════════════════════════
+       FOOTER — same on every page.
+       ══════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-social">
+        <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <i class="fa-brands fa-github"></i>
+        </a>
+        <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+        <a href="mailto:parvin091999@gmail.com" aria-label="Email">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+      </div>
+      <p>&copy; 2025 Parvin V Ramroop. Built with HTML, CSS &amp; JavaScript.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

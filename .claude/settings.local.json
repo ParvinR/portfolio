@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Get-ChildItem -Recurse \"C:\\\\Users\\\\parvi\\\\OneDrive\\\\Desktop\\\\portfolio\" | Where-Object { !$_.PSIsContainer } | Select-Object FullName)"
+    ]
+  }
+}

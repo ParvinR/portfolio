@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<!--
+  index.html — Homepage
+  ─────────────────────
+  This is the first page visitors see. It contains:
+    - Navbar (shared across all pages)
+    - Hero section (name, typewriter animation, CTA buttons)
+    - About preview (short bio + skills grid)
+    - Featured projects (3 project cards)
+    - Contact preview (form + social links)
+    - Footer (shared across all pages)
+-->
+<html lang="en">
+<head>
+  <!-- Character encoding: UTF-8 supports all characters including symbols and emoji. -->
+  <meta charset="UTF-8" />
+
+  <!-- Makes the page responsive on phones. Without this, mobile browsers zoom out to
+       show a desktop-sized page. "width=device-width" uses the phone's real screen width. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- The text shown in Google search results under the page title. -->
+  <meta name="description" content="Parvin V Ramroop — Embedded Systems Engineer, CS Researcher, and Developer. CS Senior at Queens College (CUNY)." />
+
+  <!-- The text shown in the browser tab. -->
+  <title>Parvin V Ramroop — Portfolio</title>
+
+  <!-- ── Google Fonts ──
+       We preconnect first so the browser opens the connection early,
+       then load the actual font stylesheet. Loading three fonts:
+       Playfair Display (headings), DM Sans (body), JetBrains Mono (code/labels). -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome: icon library for GitHub logos, envelopes, arrows, etc. -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Devicons: icon library specifically for programming language logos (C++, Python, etc.). -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" />
+
+  <!-- Our main stylesheet — must come last so it can override CDN styles if needed. -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════
+       NAVBAR
+       Sticks to the top of the page on all pages.
+       The logo links back to the homepage.
+       "active" class on the current page's link creates the purple underline.
+       The hamburger button is hidden on desktop and visible on mobile.
+       ══════════════════════════════════════════ -->
+  <nav class="navbar" aria-label="Main navigation">
+    <div class="container nav-inner">
+
+      <!-- Logo — clicking it always takes you back to the homepage. -->
+      <a href="index.html" class="nav-logo">PVR<span>.</span></a>
+
+      <!-- Nav link list. "active" marks the current page. -->
+      <ul class="nav-links" role="list">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <!-- Hamburger button: three <span> lines that animate into an X on click.
+           aria-label describes the button to screen readers. -->
+      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+    </div>
+  </nav>
+
+  <!-- <main> wraps the primary content of the page (excludes nav and footer).
+       This is important for accessibility — screen readers use it to skip to content. -->
+  <main>
+
+    <!-- ══════════════════════════════════════════
+         HERO SECTION
+         Full-screen first impression. Contains:
+           - Greeting line ("// Hello, world")
+           - Name as the main H1 heading
+           - Typewriter role animation
+           - Short bio paragraph
+           - Two CTA buttons
+           - Animated "scroll" indicator at the bottom
+         ══════════════════════════════════════════ -->
+    <section class="hero" id="hero">
+      <div class="container">
+
+        <!-- Small monospace line above the name — styled to look like a code comment. -->
+        <span class="hero-greeting">// Hello, world</span>
+
+        <!-- Main H1: the most important heading on the page. Only one H1 per page. -->
+        <h1 class="hero-name">Parvin V Ramroop</h1>
+
+        <!-- The typewriter animation lives here.
+             #typing-text is an empty span that JavaScript fills in letter by letter.
+             .cursor is the blinking | character that blinks next to the typed text. -->
+        <p class="hero-role">
+          <span id="typing-text"></span><span class="cursor" aria-hidden="true"></span>
+        </p>
+
+        <!-- Short bio — introduces who you are in two sentences. -->
+        <p class="hero-bio">
+          CS senior at Queens College (CUNY) with hands-on research in Bayesian Optimization and a
+          career path toward embedded systems engineering in defense &amp; aerospace.
+        </p>
+
+        <!-- Two call-to-action buttons side by side.
+             "View Projects" goes to the projects page.
+             "Contact Me" goes to the contact page. -->
+        <div class="hero-cta">
+          <a href="projects.html" class="btn btn-primary">
+            <i class="fa-solid fa-code" aria-hidden="true"></i> View Projects
+          </a>
+          <a href="contact.html" class="btn btn-outline">
+            <i class="fa-solid fa-envelope" aria-hidden="true"></i> Contact Me
+          </a>
+        </div>
+
+      </div>
+
+      <!-- "scroll ↓" indicator at the bottom center of the hero.
+           aria-hidden="true" hides it from screen readers — it's decorative only. -->
+      <div class="hero-scroll" aria-hidden="true">
+        <i class="fa-solid fa-chevron-down"></i>
+        <span>scroll</span>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         ABOUT PREVIEW
+         Two-column section: bio text on the left, skills grid on the right.
+         "fade-in" class means it animates in when scrolled into view.
+         ══════════════════════════════════════════ -->
+    <section class="section" id="about-preview">
+      <div class="container">
+        <div class="about-preview-grid fade-in">
+
+          <!-- Left column: short bio + link to full About page. -->
+          <div class="about-preview-text">
+            <span class="section-label">About Me</span>
+            <h2 class="section-title">Building systems that matter</h2>
+            <p>
+              I'm a Computer Science senior specializing in low-level programming, embedded systems,
+              and machine learning research. My undergraduate research under Prof. Bon Sy explores
+              Bayesian Optimization for dynamic coverage problems using Gaussian Processes and
+              Expected Improvement.
+            </p>
+            <p>
+              My long-term goal is to serve in the Air National Guard and pursue an embedded systems
+              engineering role at Lockheed Martin, while completing an online MS in Electrical
+              Engineering at the University of Colorado.
+            </p>
+            <a href="about.html" class="btn btn-outline">Learn More</a>
+          </div>
+
+          <!-- Right column: 3×3 grid of skill tiles (icon + label).
+               aria-label describes the group for screen readers. -->
+          <div class="skills-grid" aria-label="Key skills">
+            <!-- Each .skill-item has a Devicon or Font Awesome icon + the skill name. -->
+            <div class="skill-item">
+              <i class="devicon-cplusplus-plain" aria-hidden="true"></i> C++
+            </div>
+            <div class="skill-item">
+              <i class="devicon-java-plain" aria-hidden="true"></i> Java
+            </div>
+            <div class="skill-item">
+              <i class="devicon-python-plain" aria-hidden="true"></i> Python
+            </div>
+            <div class="skill-item">
+              <i class="devicon-react-original" aria-hidden="true"></i> React
+            </div>
+            <div class="skill-item">
+              <i class="devicon-javascript-plain" aria-hidden="true"></i> JavaScript
+            </div>
+            <div class="skill-item">
+              <i class="devicon-git-plain" aria-hidden="true"></i> Git
+            </div>
+            <div class="skill-item">
+              <i class="fa-solid fa-brain" aria-hidden="true"></i> Bayesian Opt.
+            </div>
+            <div class="skill-item">
+              <i class="devicon-numpy-plain" aria-hidden="true"></i> NumPy
+            </div>
+            <div class="skill-item">
+              <i class="fa-solid fa-microchip" aria-hidden="true"></i> Embedded
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         FEATURED PROJECTS
+         A preview of the three main projects as cards.
+         Uses a darker surface background to visually separate this section.
+         Each card links to the full detail entry on projects.html.
+         ══════════════════════════════════════════ -->
+    <section class="section" id="projects-preview" style="background: var(--surface);">
+      <div class="container">
+
+        <!-- Section header — each of these fades in separately as you scroll. -->
+        <span class="section-label fade-in">Work</span>
+        <h2 class="section-title fade-in">Featured Projects</h2>
+        <p class="section-subtitle fade-in">A selection of research and engineering projects.</p>
+
+        <!-- Three-column grid of project cards. -->
+        <div class="projects-grid">
+
+          <!-- PROJECT CARD 1: Bayesian Optimization research.
+               <article> is the right semantic element for a self-contained piece of content. -->
+          <article class="project-card fade-in">
+            <!-- Small icon square at the top of the card. -->
+            <div class="project-icon" aria-hidden="true">
+              <i class="fa-solid fa-chart-line"></i>
+            </div>
+            <h3>Bayesian Optimization: Dynamic Observer Coverage</h3>
+            <p>
+              Undergraduate research under Prof. Bon Sy. Parameter tuning of K, v, and R for
+              mobile observer coverage using Gaussian Processes and Expected Improvement via
+              scikit-optimize and GPyOpt.
+            </p>
+            <!-- Technology tags — pill-shaped badges. -->
+            <div class="project-tags" aria-label="Technologies used">
+              <span class="tag">Python</span>
+              <span class="tag">Gaussian Processes</span>
+              <span class="tag">scikit-optimize</span>
+              <span class="tag">NumPy</span>
+            </div>
+            <!-- Link to the full details on the projects page.
+                 The #bayesian hash navigates directly to that card's anchor. -->
+            <div class="project-links">
+              <a href="projects.html#bayesian" class="project-link">
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Details
+              </a>
+            </div>
+          </article>
+
+          <!-- PROJECT CARD 2: Diabetes Predictor ML project. -->
+          <article class="project-card fade-in">
+            <div class="project-icon" aria-hidden="true">
+              <i class="fa-solid fa-heart-pulse"></i>
+            </div>
+            <h3>Diabetes Predictor</h3>
+            <p>
+              Machine learning classifier built as a group project to predict diabetes onset
+              from clinical data. Explored multiple classification algorithms and evaluated
+              model performance with cross-validation.
+            </p>
+            <div class="project-tags" aria-label="Technologies used">
+              <span class="tag">Python</span>
+              <span class="tag">scikit-learn</span>
+              <span class="tag">Pandas</span>
+              <span class="tag">Matplotlib</span>
+            </div>
+            <div class="project-links">
+              <a href="projects.html#diabetes" class="project-link">
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Details
+              </a>
+            </div>
+          </article>
+
+          <!-- PROJECT CARD 3: React multi-AI tool. -->
+          <article class="project-card fade-in">
+            <div class="project-icon" aria-hidden="true">
+              <i class="fa-solid fa-robot"></i>
+            </div>
+            <h3>Interactive React Multi-AI Tool</h3>
+            <p>
+              A React-based tool enabling structured multi-round collaboration between Claude
+              and ChatGPT. Allows chaining AI responses, comparing outputs, and managing
+              conversational context across models.
+            </p>
+            <div class="project-tags" aria-label="Technologies used">
+              <span class="tag">React</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">API Integration</span>
+              <span class="tag">CSS</span>
+            </div>
+            <div class="project-links">
+              <a href="projects.html#multiai" class="project-link">
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Details
+              </a>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Centered "All Projects" button below the grid. -->
+        <div style="text-align:center; margin-top:2.5rem;" class="fade-in">
+          <a href="projects.html" class="btn btn-outline">All Projects</a>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         CONTACT PREVIEW
+         Two columns: info/links on the left, contact form on the right.
+         The same form structure is used on contact.html (with an extra Subject field).
+         ══════════════════════════════════════════ -->
+    <section class="section" id="contact-preview">
+      <div class="container">
+        <div class="contact-grid fade-in">
+
+          <!-- Left column: heading, blurb, and social links. -->
+          <div class="contact-info">
+            <span class="section-label">Get In Touch</span>
+            <h2>Let's connect</h2>
+            <p>
+              I'm currently open to internship and entry-level opportunities in embedded
+              systems and defense/aerospace engineering. Feel free to reach out — I respond
+              within 24 hours.
+            </p>
+            <div class="contact-links">
+              <!-- target="_blank" opens in a new tab.
+                   rel="noopener noreferrer" is a security best practice for external links. -->
+              <a href="https://github.com/" class="contact-link" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-github" aria-hidden="true"></i>
+                github.com/parvinramroop
+              </a>
+              <a href="https://linkedin.com/" class="contact-link" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+                linkedin.com/in/parvinramroop
+              </a>
+              <!-- mailto: links open the user's default email app. -->
+              <a href="mailto:parvin091999@gmail.com" class="contact-link">
+                <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                parvin091999@gmail.com
+              </a>
+            </div>
+          </div>
+
+          <!-- Right column: the contact form.
+               action points to Formspree — replace YOUR_FORM_ID with your real ID.
+               novalidate disables the browser's built-in validation so our JS handles it instead. -->
+          <form class="contact-form" id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+
+            <!-- Each .form-group contains a label, input, and error message. -->
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your full name" autocomplete="name" />
+              <!-- Error message: hidden by default, shown by JS if validation fails. -->
+              <span class="form-error" role="alert"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="your@email.com" autocomplete="email" />
+              <span class="form-error" role="alert"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="What's on your mind?"></textarea>
+              <span class="form-error" role="alert"></span>
+            </div>
+
+            <!-- Submit button. -->
+            <button type="submit" class="btn btn-primary">
+              <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Send Message
+            </button>
+
+            <!-- Success message: hidden by default, shown by JS after successful submission.
+                 role="status" announces the message to screen readers automatically. -->
+            <div class="form-success" id="form-success" role="status">
+              <i class="fa-solid fa-circle-check"></i> Message sent! I'll get back to you soon.
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ══════════════════════════════════════════
+       FOOTER
+       Shared across all pages. Social icons + copyright line.
+       ══════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container footer-inner">
+
+      <!-- Row of three social icon links. -->
+      <div class="footer-social">
+        <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <i class="fa-brands fa-github"></i>
+        </a>
+        <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+        <a href="mailto:parvin091999@gmail.com" aria-label="Email">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+      </div>
+
+      <!-- &copy; renders as the © copyright symbol. &amp; renders as &. -->
+      <p>&copy; 2025 Parvin V Ramroop. Built with HTML, CSS &amp; JavaScript.</p>
+
+    </div>
+  </footer>
+
+  <!-- JavaScript is loaded at the very bottom of the body.
+       This ensures all HTML elements above exist before the script runs.
+       If it were in <head>, it might try to find elements that don't exist yet. -->
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<!--
+  about.html — About Page
+  ────────────────────────
+  Full biography, photo placeholder, career goals callout,
+  skills organized by category, and an education/career timeline grid.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="About Parvin V Ramroop — CS researcher, embedded systems engineer, and Queens College senior." />
+  <title>About — Parvin V Ramroop</title>
+
+  <!-- Google Fonts: same three fonts used across the whole site. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+
+  <!-- Icon libraries. -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" />
+
+  <!-- Shared stylesheet. -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════
+       NAVBAR
+       "active" is on the About link since we're on about.html.
+       ══════════════════════════════════════════ -->
+  <nav class="navbar" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo">PVR<span>.</span></a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ══════════════════════════════════════════
+         PAGE HERO
+         Short header that names the page and provides a subtitle.
+         Used on all inner pages (About, Projects, Resume, Contact).
+         "fade-in" makes it animate as the page loads.
+         ══════════════════════════════════════════ -->
+    <header class="page-hero">
+      <div class="container fade-in">
+        <span class="section-label">About</span>
+        <h1>Who I am</h1>
+        <p>Researcher, engineer-in-training, and lifelong learner.</p>
+      </div>
+    </header>
+
+
+    <!-- ══════════════════════════════════════════
+         BIO SECTION
+         Two columns: photo placeholder on the left, bio text on the right.
+         ══════════════════════════════════════════ -->
+    <section class="section">
+      <div class="container">
+        <div class="about-grid fade-in">
+
+          <!-- Left column: photo placeholder box.
+               Replace the <i> icon and text with an <img> tag once you have a headshot. -->
+          <div class="about-photo-box" aria-label="Photo placeholder">
+            <div>
+              <!-- Astronaut icon as a stand-in until a real photo is added. -->
+              <i class="fa-solid fa-user-astronaut" aria-hidden="true"></i>
+              <p style="font-size:0.85rem; margin:0;">Photo coming soon</p>
+            </div>
+          </div>
+
+          <!-- Right column: full bio text, career goals callout, and action buttons. -->
+          <div class="about-content">
+            <span class="section-label">Background</span>
+            <h2 class="section-title">Parvin V Ramroop</h2>
+
+            <!-- Bio paragraphs — each is a separate thought. -->
+            <p>
+              I'm a Computer Science senior at Queens College (CUNY) with hands-on experience in
+              machine learning research, embedded systems programming, and full-stack web development.
+              My academic work centers on applying Bayesian Optimization to real-world coverage
+              problems under the supervision of Prof. Bon Sy.
+            </p>
+
+            <p>
+              My foundation in C++ and Java underpins my interest in low-level, performance-critical
+              systems — the kind of engineering that powers aircraft, defense systems, and satellite
+              infrastructure. I approach problems with a systems-thinking mindset: understanding
+              constraints, optimizing under them, and building things that work reliably.
+            </p>
+
+            <p>
+              Outside of academics, I've built a React-based tool for structured multi-AI
+              collaboration, led a group machine learning project on diabetes prediction, and
+              continuously explored the intersection of theory and applied engineering.
+            </p>
+
+            <!-- Highlighted callout box for the career trajectory.
+                 The thick purple left border draws the eye to this important statement. -->
+            <div class="about-goals">
+              <p>
+                <strong style="color: var(--accent-light);">Career trajectory:</strong> After graduation,
+                I plan to join the Air National Guard and pursue an online MS in Electrical Engineering
+                at the University of Colorado — with a long-term target of an embedded systems
+                engineering role at Lockheed Martin.
+              </p>
+            </div>
+
+            <!-- Two action buttons side by side (or stacked on small screens via flex-wrap). -->
+            <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:1.5rem;">
+              <a href="resume.html" class="btn btn-primary">
+                <i class="fa-solid fa-file-pdf" aria-hidden="true"></i> View Resume
+              </a>
+              <a href="contact.html" class="btn btn-outline">
+                <i class="fa-solid fa-envelope" aria-hidden="true"></i> Get In Touch
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         SKILLS SECTION
+         Skills organized into four category cards:
+         Languages, Frameworks & Libraries, Research & ML, Tools.
+         Uses a darker background to visually separate this section.
+         ══════════════════════════════════════════ -->
+    <section class="skills-section" style="background: var(--surface);">
+      <div class="container">
+        <span class="section-label fade-in">Expertise</span>
+        <h2 class="section-title fade-in">Skills &amp; Tools</h2>
+        <p class="section-subtitle fade-in">Technologies I work with across research, systems, and web development.</p>
+
+        <!-- 2×2 grid of skill category cards. Stacks to 1 column on mobile. -->
+        <div class="skills-categories">
+
+          <!-- CATEGORY 1: Programming languages. -->
+          <div class="skill-category fade-in">
+            <h3>Languages</h3>
+            <!-- Pill badges for each skill. -->
+            <div class="skill-pills">
+              <span class="skill-pill">C++</span>
+              <span class="skill-pill">Java</span>
+              <span class="skill-pill">Python</span>
+              <span class="skill-pill">JavaScript</span>
+              <span class="skill-pill">HTML &amp; CSS</span>
+            </div>
+          </div>
+
+          <!-- CATEGORY 2: Frameworks and libraries. -->
+          <div class="skill-category fade-in">
+            <h3>Frameworks &amp; Libraries</h3>
+            <div class="skill-pills">
+              <span class="skill-pill">React</span>
+              <span class="skill-pill">NumPy</span>
+              <span class="skill-pill">Pandas</span>
+              <span class="skill-pill">Matplotlib</span>
+              <span class="skill-pill">scikit-learn</span>
+              <span class="skill-pill">scikit-optimize</span>
+              <span class="skill-pill">GPyOpt</span>
+            </div>
+          </div>
+
+          <!-- CATEGORY 3: Research and machine learning concepts. -->
+          <div class="skill-category fade-in">
+            <h3>Research &amp; ML</h3>
+            <div class="skill-pills">
+              <span class="skill-pill">Bayesian Optimization</span>
+              <span class="skill-pill">Gaussian Processes</span>
+              <span class="skill-pill">Expected Improvement</span>
+              <span class="skill-pill">Classification</span>
+              <span class="skill-pill">Cross-Validation</span>
+            </div>
+          </div>
+
+          <!-- CATEGORY 4: Development tools and environment. -->
+          <div class="skill-category fade-in">
+            <h3>Tools &amp; Environment</h3>
+            <div class="skill-pills">
+              <span class="skill-pill">Git</span>
+              <span class="skill-pill">VS Code</span>
+              <span class="skill-pill">PowerShell</span>
+              <span class="skill-pill">GitHub Pages</span>
+              <span class="skill-pill">Jupyter Notebooks</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         EDUCATION & GOALS
+         Four milestone cards: current degree, planned MS, Air National Guard, Lockheed Martin.
+         Uses an auto-fill grid so the cards wrap naturally at any screen size.
+         ══════════════════════════════════════════ -->
+    <section class="section">
+      <div class="container">
+        <span class="section-label fade-in">Education &amp; Path</span>
+        <h2 class="section-title fade-in">Academic &amp; Career Goals</h2>
+
+        <!-- Auto-fill grid: each card is at least 280px wide, and they fill the row evenly. -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+
+          <!-- MILESTONE 1: Current degree. The thick left border matches the accent color. -->
+          <div class="skill-category fade-in" style="border-left: 3px solid var(--accent);">
+            <h3 style="font-family: var(--font-display); font-size: 1rem; color: var(--text); margin-bottom: 0.5rem;">
+              BS Computer Science
+            </h3>
+            <p style="font-size: 0.88rem; margin-bottom: 0.25rem;">Queens College, CUNY</p>
+            <p style="font-size: 0.82rem; color: var(--text-muted);">In Progress — Expected 2025</p>
+          </div>
+
+          <!-- MILESTONE 2: Planned graduate degree. -->
+          <div class="skill-category fade-in" style="border-left: 3px solid var(--accent);">
+            <h3 style="font-family: var(--font-display); font-size: 1rem; color: var(--text); margin-bottom: 0.5rem;">
+              MS Electrical Engineering
+            </h3>
+            <p style="font-size: 0.88rem; margin-bottom: 0.25rem;">University of Colorado (Online)</p>
+            <p style="font-size: 0.82rem; color: var(--text-muted);">Planned — Post-Graduation</p>
+          </div>
+
+          <!-- MILESTONE 3: Military service. -->
+          <div class="skill-category fade-in" style="border-left: 3px solid var(--accent);">
+            <h3 style="font-family: var(--font-display); font-size: 1rem; color: var(--text); margin-bottom: 0.5rem;">
+              Air National Guard
+            </h3>
+            <p style="font-size: 0.88rem; margin-bottom: 0.25rem;">Service Commitment</p>
+            <p style="font-size: 0.82rem; color: var(--text-muted);">Career Pathway — Post-Graduation</p>
+          </div>
+
+          <!-- MILESTONE 4: Long-term career target. -->
+          <div class="skill-category fade-in" style="border-left: 3px solid var(--accent);">
+            <h3 style="font-family: var(--font-display); font-size: 1rem; color: var(--text); margin-bottom: 0.5rem;">
+              Lockheed Martin
+            </h3>
+            <p style="font-size: 0.88rem; margin-bottom: 0.25rem;">Target Role: Embedded Systems Engineer</p>
+            <p style="font-size: 0.82rem; color: var(--text-muted);">Defense &amp; Aerospace</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ══════════════════════════════════════════
+       FOOTER — same on every page.
+       ══════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-social">
+        <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <i class="fa-brands fa-github"></i>
+        </a>
+        <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+        <a href="mailto:parvin091999@gmail.com" aria-label="Email">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+      </div>
+      <p>&copy; 2025 Parvin V Ramroop. Built with HTML, CSS &amp; JavaScript.</p>
+    </div>
+  </footer>
+
+  <!-- JS at the bottom so all HTML elements are available when the script runs. -->
+  <script src="js/main.js"></script>
+</body>
+</html>
