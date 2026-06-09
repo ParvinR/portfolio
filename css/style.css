@@ -1,88 +1,34 @@
-/*
-  style.css — Main stylesheet for Parvin V Ramroop's portfolio
-  ─────────────────────────────────────────────────────────────
-  This single file styles every page on the site.
-  It's organized top-to-bottom in the order things are built:
-    1. Custom Properties (design tokens / variables)
-    2. Reset & Base (browser default overrides)
-    3. Typography (headings, paragraphs)
-    4. Utility classes (reusable helpers like .container, .btn)
-    5. Fade-in animation
-    6. Navbar
-    7. Hero section
-    8. About preview (homepage)
-    9. Projects grid
-   10. Contact section & form
-   11. Footer
-   12. Inner-page hero (About, Projects, Resume, Contact pages)
-   13. About page
-   14. Projects page
-   15. Resume page
-   16. Responsive overrides (media queries)
-*/
-
-
-/* ─────────────────────────────────────────────
-   1. CUSTOM PROPERTIES
-   ─────────────────────────────────────────────
-   CSS custom properties (also called "CSS variables") are defined
-   on :root so they're available everywhere on the page.
-   Instead of typing "#7c3aed" in 20 places, we write var(--accent).
-   If the purple ever changes, we update it here once and it
-   updates everywhere automatically.
-*/
+/* ── Custom Properties ── */
 :root {
-  /* Colors */
-  --bg: #0d0d14;                          /* Main page background — near-black */
-  --surface: #13131f;                     /* Card and section backgrounds — slightly lighter */
-  --surface-2: #1a1a2e;                   /* A third level for nested elements */
-  --accent: #7c3aed;                      /* Primary purple — used on buttons and highlights */
-  --accent-light: #a78bfa;               /* Lighter purple — used for labels, icons, hover states */
-  --accent-glow: rgba(124, 58, 237, 0.25); /* Semi-transparent purple for glow effects */
-  --text: #f1f0f5;                        /* Primary text color — off-white */
-  --text-muted: #9592a8;                  /* Secondary text — dimmer, used for descriptions */
-  --border: #2a2a3d;                      /* Subtle border color for cards and dividers */
-  --success: #22c55e;                     /* Green — shown when the contact form submits successfully */
-  --error: #ef4444;                       /* Red — shown when a form field has an error */
+  --bg: #0d0d14;
+  --surface: #13131f;
+  --surface-2: #1a1a2e;
+  --accent: #7c3aed;
+  --accent-light: #a78bfa;
+  --accent-glow: rgba(124, 58, 237, 0.25);
+  --text: #f1f0f5;
+  --text-muted: #9592a8;
+  --border: #2a2a3d;
+  --success: #22c55e;
+  --error: #ef4444;
 
-  /* Fonts */
-  --font-display: 'Playfair Display', serif;  /* Serif font for headings — elegant and authoritative */
-  --font-body: 'DM Sans', sans-serif;         /* Clean sans-serif for body text */
-  --font-mono: 'JetBrains Mono', monospace;   /* Monospace for labels, tags, and code snippets */
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
 
-  /* Spacing & shape */
-  --radius: 12px;                         /* Rounded corners for cards */
-  --radius-sm: 6px;                       /* Slightly rounder corners for buttons and small elements */
-
-  /* Transitions */
-  --transition: 0.25s ease;              /* Standard speed for hover animations */
-
-  /* Shadows */
-  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);       /* Drop shadow under cards */
-  --shadow-glow: 0 0 20px rgba(124, 58, 237, 0.3);    /* Purple glow for hover effects */
+  --radius: 12px;
+  --radius-sm: 6px;
+  --transition: 0.25s ease;
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
+  --shadow-glow: 0 0 20px rgba(124, 58, 237, 0.3);
 }
 
 
-/* ─────────────────────────────────────────────
-   2. RESET & BASE
-   ─────────────────────────────────────────────
-   Different browsers apply their own default styles (margins,
-   padding, bullet points, etc.). This section resets those
-   defaults so every browser starts from the same blank slate.
-*/
-
-/* Apply border-box sizing to everything.
-   By default, padding is added ON TOP of a width.
-   border-box includes padding inside the width — much more intuitive. */
+/* ── Reset & Base ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* Enable smooth scrolling so anchor links (#section) glide instead of jump.
-   Set the base font size to 16px — 1rem = 16px everywhere on the page. */
 html { scroll-behavior: smooth; font-size: 16px; }
 
-/* Set the page background, default text color, and font.
-   line-height: 1.7 means line spacing is 1.7× the font size — comfortable to read.
-   antialiased makes text edges look sharper on Mac/Chrome. */
 body {
   background-color: var(--bg);
   color: var(--text);
@@ -91,100 +37,64 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Prevent images from overflowing their container.
-   display: block removes the small gap browsers add below images. */
 img { max-width: 100%; display: block; }
-
-/* Remove the default blue underline from links.
-   color: inherit means the link takes on whatever color its parent has. */
 a { color: inherit; text-decoration: none; }
-
-/* Remove bullet points from unordered lists. */
 ul { list-style: none; }
 
 
-/* ─────────────────────────────────────────────
-   3. TYPOGRAPHY
-   ─────────────────────────────────────────────
-   Global rules that apply to all headings and paragraphs.
-   clamp(min, preferred, max) makes font sizes scale smoothly
-   with screen width instead of jumping at breakpoints.
-*/
+/* ── Typography ── */
 
-/* All headings use the serif display font and tight line-height. */
 h1, h2, h3 {
   font-family: var(--font-display);
   line-height: 1.2;
   color: var(--text);
 }
 
-/* clamp(2.2rem, 5vw, 3.8rem) means:
-   never smaller than 2.2rem, never bigger than 3.8rem,
-   and 5vw (5% of viewport width) in between. */
+/* clamp(min, preferred, max) scales font size fluidly with viewport width */
 h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 700; }
 h2 { font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 600; }
 h3 { font-size: 1.2rem; font-weight: 600; }
 
-/* All <p> tags use the muted color by default. */
 p { color: var(--text-muted); font-size: 1rem; }
 
 
-/* ─────────────────────────────────────────────
-   4. UTILITY CLASSES
-   ─────────────────────────────────────────────
-   These classes aren't tied to one section — they're small,
-   reusable helpers that get applied anywhere on any page.
-*/
+/* ── Utilities ── */
 
-/* Centers page content and caps it at 1100px wide.
-   The left/right padding (1.5rem) stops content from touching screen edges on mobile. */
 .container {
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 1.5rem;
 }
 
-/* Standard vertical breathing room between page sections. */
 .section {
   padding: 6rem 0;
 }
 
-/* The small all-caps label that appears above section headings.
-   e.g., "// About Me" or "Work" */
 .section-label {
   font-family: var(--font-mono);
   font-size: 0.8rem;
   color: var(--accent-light);
-  letter-spacing: 0.15em;      /* Extra spacing between letters for the all-caps effect */
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   margin-bottom: 0.5rem;
-  display: block;               /* Makes it appear on its own line like a <p> */
+  display: block;
 }
 
-/* Spacing below a section's main heading. */
 .section-title {
   margin-bottom: 0.75rem;
 }
 
-/* The gray paragraph that follows a section heading — introduces the section. */
 .section-subtitle {
   font-size: 1.05rem;
   color: var(--text-muted);
-  max-width: 560px;             /* Keeps it from stretching too wide to read comfortably */
+  max-width: 560px;
   margin-bottom: 3rem;
 }
 
-/* ── Buttons ──
-   .btn is the shared base for all buttons.
-   .btn-primary is the filled purple button.
-   .btn-outline is the transparent button with a purple border.
-*/
-
-/* Base button styles — layout, sizing, and hover transition. */
 .btn {
-  display: inline-flex;         /* Allows icon + text to sit side by side */
+  display: inline-flex;
   align-items: center;
-  gap: 0.5rem;                  /* Space between the icon and the text */
+  gap: 0.5rem;
   padding: 0.75rem 1.6rem;
   border-radius: var(--radius-sm);
   font-family: var(--font-body);
@@ -195,71 +105,48 @@ p { color: var(--text-muted); font-size: 1rem; }
   transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
 }
 
-/* All buttons lift slightly when hovered. */
 .btn:hover { transform: translateY(-2px); }
 
-/* Filled purple button. */
 .btn-primary {
   background: var(--accent);
   color: #fff;
 }
-/* Darkens the purple and adds a glow on hover. */
 .btn-primary:hover { background: #6d28d9; box-shadow: var(--shadow-glow); }
 
-/* Transparent button with a purple border. */
 .btn-outline {
   background: transparent;
   color: var(--accent-light);
   border: 1.5px solid var(--accent);
 }
-/* Fills in a semi-transparent purple background on hover. */
 .btn-outline:hover { background: var(--accent-glow); box-shadow: var(--shadow-glow); }
 
-/* Small pill badges used to label technologies on project cards. */
 .tag {
   font-family: var(--font-mono);
   font-size: 0.72rem;
   color: var(--accent-light);
-  background: rgba(124, 58, 237, 0.12);  /* Very faint purple background */
+  background: rgba(124, 58, 237, 0.12);
   border: 1px solid rgba(124, 58, 237, 0.25);
   padding: 0.2rem 0.6rem;
-  border-radius: 999px;                  /* Large value = fully rounded pill shape */
-  white-space: nowrap;                   /* Prevents the tag text from line-wrapping */
+  border-radius: 999px;
+  white-space: nowrap;
 }
 
 
-/* ─────────────────────────────────────────────
-   5. FADE-IN ANIMATION
-   ─────────────────────────────────────────────
-   Elements with the class "fade-in" start invisible and shifted
-   down 28px. When JavaScript adds the class "visible" (triggered
-   by the Intersection Observer watching scroll position), they
-   smoothly fade in and slide up into position.
-*/
+/* ── Fade-in Animation ── */
 
-/* Starting state: invisible and shifted down. */
 .fade-in {
   opacity: 0;
   transform: translateY(28px);
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
-/* Ending state: fully visible at normal position. */
 .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
 
-/* ─────────────────────────────────────────────
-   6. NAVBAR
-   ─────────────────────────────────────────────
-   The navigation bar that sticks to the top of the page.
-   It starts transparent and gains a frosted-glass background
-   once the user scrolls down (JavaScript adds the "scrolled" class).
-*/
+/* ── Navbar ── */
 
-/* Sticks to the top of the viewport at all times.
-   z-index: 1000 keeps it above all other content. */
 .navbar {
   position: fixed;
   top: 0;
@@ -270,22 +157,19 @@ p { color: var(--text-muted); font-size: 1rem; }
   transition: background var(--transition), box-shadow var(--transition);
 }
 
-/* Frosted-glass look applied once the user starts scrolling.
-   backdrop-filter: blur() blurs whatever is behind the navbar. */
+/* backdrop-filter creates the frosted-glass effect behind the navbar */
 .navbar.scrolled {
   background: rgba(13, 13, 20, 0.92);
   backdrop-filter: blur(12px);
-  box-shadow: 0 1px 0 var(--border);     /* Thin line under the navbar */
+  box-shadow: 0 1px 0 var(--border);
 }
 
-/* Flex row: logo on the left, links in the middle/right. */
 .nav-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-/* The "PVR." logo text in the top-left corner. */
 .nav-logo {
   font-family: var(--font-display);
   font-size: 1.2rem;
@@ -293,27 +177,24 @@ p { color: var(--text-muted); font-size: 1rem; }
   color: var(--text);
   letter-spacing: 0.01em;
 }
-/* The dot after "PVR" is purple. */
 .nav-logo span { color: var(--accent-light); }
 
-/* Horizontal list of nav links — Home, About, Projects, etc. */
 .nav-links {
   display: flex;
   gap: 2rem;
   align-items: center;
 }
 
-/* Individual nav link styling — dim by default. */
+/* position: relative is required so the ::after underline can be absolutely positioned beneath the text */
 .nav-links a {
   font-size: 0.9rem;
   font-weight: 500;
   color: var(--text-muted);
   transition: color var(--transition);
-  position: relative;             /* Needed so the underline can be positioned beneath the text */
+  position: relative;
 }
 
-/* The animated underline that slides in on hover.
-   It starts at width: 0 (invisible) and grows to width: 100% on hover. */
+/* Underline starts at width: 0 and expands to 100% on hover/active */
 .nav-links a::after {
   content: '';
   position: absolute;
@@ -325,22 +206,16 @@ p { color: var(--text-muted); font-size: 1rem; }
   transition: width var(--transition);
 }
 
-/* When hovered or marked .active (current page), the link turns bright. */
 .nav-links a:hover,
 .nav-links a.active {
   color: var(--text);
 }
 
-/* Extend the underline to full width when active or hovered. */
 .nav-links a:hover::after,
 .nav-links a.active::after {
   width: 100%;
 }
 
-/* ── Hamburger Menu (mobile only) ──
-   Hidden on desktop (display: none). Visible only on small screens via media query.
-   Three <span> elements form the three lines of the icon.
-*/
 .hamburger {
   display: none;
   flex-direction: column;
@@ -351,7 +226,6 @@ p { color: var(--text-muted); font-size: 1rem; }
   padding: 4px;
 }
 
-/* Each of the three horizontal lines. */
 .hamburger span {
   display: block;
   width: 24px;
@@ -361,37 +235,24 @@ p { color: var(--text-muted); font-size: 1rem; }
   transition: transform var(--transition), opacity var(--transition);
 }
 
-/* When the menu is open (.open class added by JS), the three lines
-   animate into an X shape:
-   - Top line rotates +45° and moves down
-   - Middle line disappears (opacity 0)
-   - Bottom line rotates -45° and moves up */
+/* Three lines animate into an X: top rotates down +45°, middle fades out, bottom rotates up -45° */
 .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .hamburger.open span:nth-child(2) { opacity: 0; }
 .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 
-/* ─────────────────────────────────────────────
-   7. HERO SECTION
-   ─────────────────────────────────────────────
-   The full-screen first impression on the homepage.
-   Contains the name, typewriter role animation, short bio,
-   and call-to-action buttons.
-*/
+/* ── Hero ── */
 
-/* Fills the full viewport height. Flexbox centers content vertically.
-   overflow: hidden clips the decorative background glow that extends outside. */
+/* overflow: hidden clips the decorative radial glow that extends outside the section */
 .hero {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding-top: 5rem;              /* Clears the fixed navbar */
+  padding-top: 5rem;
   position: relative;
   overflow: hidden;
 }
 
-/* Decorative radial gradient glow in the top-right corner of the hero.
-   pointer-events: none means it can't be accidentally clicked. */
 .hero::before {
   content: '';
   position: absolute;
@@ -403,7 +264,6 @@ p { color: var(--text-muted); font-size: 1rem; }
   pointer-events: none;
 }
 
-/* The "// Hello, world" line above the name. */
 .hero-greeting {
   font-family: var(--font-mono);
   font-size: 0.9rem;
@@ -412,13 +272,11 @@ p { color: var(--text-muted); font-size: 1rem; }
   display: block;
 }
 
-/* Just adds spacing below the h1 name. */
 .hero-name {
   margin-bottom: 0.5rem;
 }
 
-/* The line that shows the typewriter animation.
-   min-height prevents the layout from jumping as text types/deletes. */
+/* min-height prevents the layout from jumping as text types and deletes */
 .hero-role {
   font-size: clamp(1.1rem, 2.5vw, 1.5rem);
   color: var(--text-muted);
@@ -426,8 +284,7 @@ p { color: var(--text-muted); font-size: 1rem; }
   margin-bottom: 1.5rem;
 }
 
-/* The blinking | cursor next to the typing animation.
-   "blink" animation toggles opacity between 1 and 0 every 0.9s. */
+/* step-end makes the blink snap on/off instead of fading */
 .cursor {
   display: inline-block;
   width: 2px;
@@ -435,13 +292,11 @@ p { color: var(--text-muted); font-size: 1rem; }
   background: var(--accent-light);
   margin-left: 2px;
   vertical-align: text-bottom;
-  animation: blink 0.9s step-end infinite; /* step-end makes it snap, not fade */
+  animation: blink 0.9s step-end infinite;
 }
 
-/* The cursor disappears at the halfway point in the animation. */
 @keyframes blink { 50% { opacity: 0; } }
 
-/* The short bio paragraph below the role title. */
 .hero-bio {
   max-width: 560px;
   font-size: 1.05rem;
@@ -449,15 +304,13 @@ p { color: var(--text-muted); font-size: 1rem; }
   line-height: 1.8;
 }
 
-/* The row of CTA buttons — "View Projects" and "Contact Me". */
 .hero-cta {
   display: flex;
   gap: 1rem;
-  flex-wrap: wrap;          /* Allows buttons to stack if the screen is too narrow */
+  flex-wrap: wrap;
 }
 
-/* The small "scroll ↓" indicator at the bottom of the hero.
-   Centered horizontally using left: 50% + translateX(-50%). */
+/* left: 50% + translateX(-50%) centers an absolutely positioned element horizontally */
 .hero-scroll {
   position: absolute;
   bottom: 2.5rem;
@@ -470,26 +323,19 @@ p { color: var(--text-muted); font-size: 1rem; }
   color: var(--text-muted);
   font-size: 0.75rem;
   font-family: var(--font-mono);
-  animation: float 2.5s ease-in-out infinite;  /* Gentle bobbing up-and-down */
+  animation: float 2.5s ease-in-out infinite;
 }
 
 .hero-scroll i { font-size: 1rem; color: var(--accent-light); }
 
-/* The float animation — bobs 6px upward and back. */
 @keyframes float {
   0%, 100% { transform: translateX(-50%) translateY(0); }
   50% { transform: translateX(-50%) translateY(-6px); }
 }
 
 
-/* ─────────────────────────────────────────────
-   8. ABOUT PREVIEW (homepage only)
-   ─────────────────────────────────────────────
-   The two-column section on the homepage:
-   left column = short bio text, right column = skills icon grid.
-*/
+/* ── About Preview ── */
 
-/* Two equal columns side by side. */
 .about-preview-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -497,22 +343,18 @@ p { color: var(--text-muted); font-size: 1rem; }
   align-items: center;
 }
 
-/* Space between paragraphs in the bio column. */
 .about-preview-text p {
   margin-bottom: 1rem;
 }
 
-/* Push the "Learn More" button down a bit. */
 .about-preview-text .btn { margin-top: 1rem; }
 
-/* 3-column grid of skill icon tiles. */
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
 }
 
-/* Individual skill tile — icon + label. */
 .skill-item {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -526,13 +368,11 @@ p { color: var(--text-muted); font-size: 1rem; }
   transition: border-color var(--transition), box-shadow var(--transition);
 }
 
-/* Glows purple on hover. */
 .skill-item:hover {
   border-color: var(--accent);
   box-shadow: 0 0 12px var(--accent-glow);
 }
 
-/* The icon inside each skill tile. Fixed width keeps tiles aligned. */
 .skill-item i {
   font-size: 1.2rem;
   color: var(--accent-light);
@@ -541,22 +381,15 @@ p { color: var(--text-muted); font-size: 1rem; }
 }
 
 
-/* ─────────────────────────────────────────────
-   9. PROJECTS GRID
-   ─────────────────────────────────────────────
-   Used on the homepage for the 3-card preview row.
-   The full-page projects grid uses .projects-full-grid further below.
-*/
+/* ── Projects Grid ── */
 
-/* Three equal columns. */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
 }
 
-/* Individual project card — vertical flex column so the button always
-   stays at the bottom regardless of how much text is in the card. */
+/* flex-direction: column so the button always stays at the bottom regardless of card content height */
 .project-card {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -568,14 +401,12 @@ p { color: var(--text-muted); font-size: 1rem; }
   transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
 }
 
-/* Card lifts up and glows on hover. */
 .project-card:hover {
   transform: translateY(-6px);
   box-shadow: var(--shadow-card), 0 0 28px var(--accent-glow);
   border-color: var(--accent);
 }
 
-/* The small square icon at the top of each project card. */
 .project-icon {
   width: 44px;
   height: 44px;
@@ -590,29 +421,25 @@ p { color: var(--text-muted); font-size: 1rem; }
 
 .project-card h3 { font-size: 1.05rem; }
 
-/* flex: 1 makes the description grow to fill available space,
-   pushing the tags and link to the bottom of the card. */
+/* flex: 1 lets the description grow to fill available space, pushing tags and links to the bottom */
 .project-card p {
   font-size: 0.9rem;
   line-height: 1.6;
   flex: 1;
 }
 
-/* Wrapping row of technology tag pills. */
 .project-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 0.4rem;
 }
 
-/* Row of links at the bottom of the card ("Details", "GitHub"). */
 .project-links {
   display: flex;
   gap: 0.75rem;
-  margin-top: auto;           /* Pushes the links to the very bottom of the card */
+  margin-top: auto; /* Pushes the links to the very bottom of the card */
 }
 
-/* Inline link with icon + text. */
 .project-link {
   display: inline-flex;
   align-items: center;
@@ -626,18 +453,13 @@ p { color: var(--text-muted); font-size: 1rem; }
 .project-link i { font-size: 0.9rem; }
 
 
-/* ─────────────────────────────────────────────
-   10. CONTACT SECTION & FORM
-   ─────────────────────────────────────────────
-   The two-column layout: contact info on the left, form on the right.
-*/
+/* ── Contact ── */
 
-/* Left column is narrower (1fr), right column (1.5fr) is wider for the form. */
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1.5fr;
   gap: 4rem;
-  align-items: start;         /* Tops of both columns line up instead of stretching */
+  align-items: start;
 }
 
 .contact-info h3 {
@@ -647,14 +469,12 @@ p { color: var(--text-muted); font-size: 1rem; }
 
 .contact-info p { margin-bottom: 2rem; }
 
-/* Stack of GitHub / LinkedIn / Email links. */
 .contact-links {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
 }
 
-/* Individual link row — icon + text. */
 .contact-link {
   display: flex;
   align-items: center;
@@ -664,26 +484,20 @@ p { color: var(--text-muted); font-size: 1rem; }
   transition: color var(--transition);
 }
 .contact-link:hover { color: var(--accent-light); }
-/* Fixed width keeps all icons aligned even if they're different widths. */
 .contact-link i { width: 18px; color: var(--accent-light); }
 
-/* ── Form layout ── */
-
-/* The form itself is a vertical flex column. */
 .contact-form {
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
 }
 
-/* Each form row = label + input/textarea + error message, stacked vertically. */
 .form-group {
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
 }
 
-/* Small monospace label above each field (e.g., "Name", "Email"). */
 .form-group label {
   font-size: 0.85rem;
   font-weight: 500;
@@ -691,7 +505,6 @@ p { color: var(--text-muted); font-size: 1rem; }
   font-family: var(--font-mono);
 }
 
-/* Shared styles for both <input> and <textarea>. */
 .form-group input,
 .form-group textarea {
   background: var(--surface);
@@ -702,25 +515,21 @@ p { color: var(--text-muted); font-size: 1rem; }
   font-size: 0.95rem;
   padding: 0.75rem 1rem;
   transition: border-color var(--transition), box-shadow var(--transition);
-  resize: vertical;             /* User can resize textarea vertically, not horizontally */
-  outline: none;                /* Remove the browser's default blue focus ring */
+  resize: vertical;
+  outline: none;
 }
 
-/* When the user clicks into a field, it gets a purple border + outer glow. */
 .form-group input:focus,
 .form-group textarea:focus {
   border-color: var(--accent);
   box-shadow: 0 0 0 3px var(--accent-glow);
 }
 
-/* Fields that failed validation turn red. */
 .form-group input.error,
 .form-group textarea.error {
   border-color: var(--error);
 }
 
-/* Error message text that appears below a field.
-   Hidden by default (display: none), shown when .visible is added by JS. */
 .form-error {
   font-size: 0.8rem;
   color: var(--error);
@@ -728,9 +537,6 @@ p { color: var(--text-muted); font-size: 1rem; }
 }
 .form-error.visible { display: block; }
 
-/* Success banner shown after the form is submitted successfully.
-   Hidden by default, shown when .visible is added by JS.
-   Slides in from above via the fadeSlide animation. */
 .form-success {
   background: rgba(34, 197, 94, 0.1);
   border: 1px solid rgba(34, 197, 94, 0.3);
@@ -744,27 +550,20 @@ p { color: var(--text-muted); font-size: 1rem; }
 }
 .form-success.visible { display: block; }
 
-/* Fades in while sliding down from slightly above. */
 @keyframes fadeSlide {
   from { opacity: 0; transform: translateY(-8px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
 
-/* ─────────────────────────────────────────────
-   11. FOOTER
-   ─────────────────────────────────────────────
-   Shared footer on every page — social icons + copyright text.
-*/
+/* ── Footer ── */
 
-/* Thin line on top, centered text. */
 .footer {
   border-top: 1px solid var(--border);
   padding: 2rem 0;
   text-align: center;
 }
 
-/* Stack the social icons above the copyright text. */
 .footer-inner {
   display: flex;
   flex-direction: column;
@@ -772,7 +571,6 @@ p { color: var(--text-muted); font-size: 1rem; }
   gap: 1rem;
 }
 
-/* Row of social icon links. */
 .footer-social {
   display: flex;
   gap: 1.25rem;
@@ -791,14 +589,9 @@ p { color: var(--text-muted); font-size: 1rem; }
 }
 
 
-/* ─────────────────────────────────────────────
-   12. PAGE HERO (inner pages)
-   ─────────────────────────────────────────────
-   The short header at the top of About, Projects, Resume, and Contact pages.
-   Smaller than the homepage hero — just enough to introduce the page.
-*/
+/* ── Page Hero (inner pages) ── */
 
-/* Extra top padding accounts for the fixed navbar. */
+/* Extra top padding accounts for the fixed navbar */
 .page-hero {
   padding: 9rem 0 4rem;
   border-bottom: 1px solid var(--border);
@@ -808,14 +601,8 @@ p { color: var(--text-muted); font-size: 1rem; }
 .page-hero p { font-size: 1.05rem; }
 
 
-/* ─────────────────────────────────────────────
-   13. ABOUT PAGE
-   ─────────────────────────────────────────────
-   Bio layout, photo placeholder, career goals callout,
-   skills categories grid, and education cards.
-*/
+/* ── About Page ── */
 
-/* Photo column (narrower) on the left, bio text (wider) on the right. */
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1.8fr;
@@ -823,8 +610,6 @@ p { color: var(--text-muted); font-size: 1rem; }
   align-items: start;
 }
 
-/* The square-ish box that holds the photo placeholder icon.
-   aspect-ratio: 3/4 maintains a portrait proportions. */
 .about-photo-box {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -841,15 +626,13 @@ p { color: var(--text-muted); font-size: 1rem; }
   overflow: hidden;
 }
 
-/* Subtle diagonal gradient overlay inside the photo box. */
 .about-photo-box::before {
   content: '';
   position: absolute;
-  inset: 0;         /* Shorthand for top/right/bottom/left all = 0 */
+  inset: 0; /* shorthand for top/right/bottom/left: 0 */
   background: linear-gradient(135deg, rgba(124,58,237,0.08) 0%, transparent 60%);
 }
 
-/* The astronaut icon inside the photo placeholder. */
 .about-photo-box i {
   font-size: 3rem;
   color: var(--accent-light);
@@ -859,9 +642,6 @@ p { color: var(--text-muted); font-size: 1rem; }
 
 .about-content p { margin-bottom: 1.2rem; }
 
-/* Highlighted callout box for the career trajectory statement.
-   The thick left border (border-left: 3px solid var(--accent)) is a
-   common design pattern for blockquotes or callouts. */
 .about-goals {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -873,17 +653,79 @@ p { color: var(--text-muted); font-size: 1rem; }
 
 .about-goals p { margin: 0; font-size: 0.95rem; }
 
-/* Vertical padding for the skills section on the about page. */
+.about-callout {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  background: rgba(124, 58, 237, 0.1);
+  border: 1px solid rgba(124, 58, 237, 0.3);
+  border-left: 3px solid var(--accent-light);
+  border-radius: var(--radius-sm);
+  padding: 1.1rem 1.4rem;
+  margin-bottom: 1.75rem;
+}
+
+.about-callout i {
+  color: var(--accent-light);
+  font-size: 1.1rem;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.about-callout p {
+  margin: 0;
+  color: var(--text);
+  font-weight: 500;
+  font-size: 0.97rem;
+  line-height: 1.6;
+}
+
+.beyond-section { background: var(--surface); }
+
+.beyond-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.beyond-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+
+.beyond-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-card), 0 0 20px var(--accent-glow);
+  border-color: var(--accent);
+}
+
+.beyond-card-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+
+.beyond-card h3 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+}
+
+.beyond-card p {
+  font-size: 0.87rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
 .skills-section { padding: 5rem 0; }
 
-/* 2-column grid of skill category cards. */
 .skills-categories {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
 }
 
-/* Each skill category card (Languages, Frameworks, etc.). */
 .skill-category {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -891,7 +733,6 @@ p { color: var(--text-muted); font-size: 1rem; }
   padding: 1.8rem;
 }
 
-/* Category title inside the card — styled like a section label. */
 .skill-category h3 {
   font-size: 0.85rem;
   font-family: var(--font-mono);
@@ -901,14 +742,12 @@ p { color: var(--text-muted); font-size: 1rem; }
   margin-bottom: 1.25rem;
 }
 
-/* Wrapping row of skill pill badges. */
 .skill-pills {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
 }
 
-/* Individual skill pill — similar to .tag but more substantial. */
 .skill-pill {
   background: var(--surface-2);
   border: 1px solid var(--border);
@@ -920,30 +759,21 @@ p { color: var(--text-muted); font-size: 1rem; }
   transition: border-color var(--transition), color var(--transition);
 }
 
-/* On hover, pill border and text go purple. */
 .skill-pill:hover {
   border-color: var(--accent);
   color: var(--accent-light);
 }
 
 
-/* ─────────────────────────────────────────────
-   14. PROJECTS PAGE
-   ─────────────────────────────────────────────
-   The full projects page uses a slightly different card style
-   (.project-card-full) with more detail than the homepage preview cards.
-*/
+/* ── Projects Page ── */
 
-/* Auto-fill means the grid decides how many columns fit.
-   minmax(320px, 1fr) means each column is at least 320px wide,
-   and they all grow equally to fill the row. */
+/* auto-fill lets the browser decide column count; minmax(320px, 1fr) means each column is at least 320px */
 .projects-full-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 1.75rem;
 }
 
-/* Vertical flex card — same pattern as .project-card but taller. */
 .project-card-full {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -955,14 +785,12 @@ p { color: var(--text-muted); font-size: 1rem; }
   transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
 }
 
-/* Lift + glow on hover, same as homepage cards. */
 .project-card-full:hover {
   transform: translateY(-6px);
   box-shadow: var(--shadow-card), 0 0 28px var(--accent-glow);
   border-color: var(--accent);
 }
 
-/* Small metadata line above the project title (e.g., "Undergraduate Research — Queens College"). */
 .project-card-full .project-meta {
   font-family: var(--font-mono);
   font-size: 0.75rem;
@@ -971,7 +799,6 @@ p { color: var(--text-muted); font-size: 1rem; }
 
 .project-card-full h3 { font-size: 1.15rem; }
 
-/* flex: 1 pushes tags and links to the bottom. */
 .project-card-full p {
   font-size: 0.9rem;
   line-height: 1.7;
@@ -979,14 +806,10 @@ p { color: var(--text-muted); font-size: 1rem; }
 }
 
 
-/* ─────────────────────────────────────────────
-   15. RESUME PAGE
-   ─────────────────────────────────────────────
-*/
+/* ── Resume Page ── */
 
 .resume-section { padding: 5rem 0; }
 
-/* Row of "Download PDF" and "Open in New Tab" buttons. */
 .resume-actions {
   display: flex;
   gap: 1rem;
@@ -994,8 +817,6 @@ p { color: var(--text-muted); font-size: 1rem; }
   flex-wrap: wrap;
 }
 
-/* The container that holds the embedded PDF iframe.
-   min-height ensures the box doesn't collapse when the PDF isn't loaded. */
 .resume-embed {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -1007,14 +828,12 @@ p { color: var(--text-muted); font-size: 1rem; }
   justify-content: center;
 }
 
-/* The actual <iframe> that displays the PDF once the file is added. */
 .resume-embed iframe {
   width: 100%;
   height: 800px;
   border: none;
 }
 
-/* Placeholder shown before the PDF file is uploaded. */
 .resume-placeholder {
   text-align: center;
   padding: 4rem 2rem;
@@ -1031,17 +850,9 @@ p { color: var(--text-muted); font-size: 1rem; }
 .resume-placeholder p { margin-bottom: 1.5rem; }
 
 
-/* ─────────────────────────────────────────────
-   16. RESPONSIVE OVERRIDES (media queries)
-   ─────────────────────────────────────────────
-   Media queries override specific rules at given screen widths.
-   Smaller screen = fewer columns, stacked layouts, larger touch targets.
-   These are placed LAST so they take priority over rules above.
-*/
+/* ── Responsive ── */
 
-/* ── Tablet and below (≤ 900px) ── */
 @media (max-width: 900px) {
-  /* These multi-column grids collapse to a single column. */
   .about-preview-grid,
   .about-grid,
   .contact-grid {
@@ -1049,27 +860,21 @@ p { color: var(--text-muted); font-size: 1rem; }
     gap: 2.5rem;
   }
 
-  /* Project grid becomes 2 columns instead of 3. */
   .projects-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  /* Skills grid drops to 2 columns. */
   .skills-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  /* Skill categories stack into a single column. */
   .skills-categories {
     grid-template-columns: 1fr;
   }
 }
 
-/* ── Mobile (≤ 640px) ── */
 @media (max-width: 640px) {
-  /* On mobile, the nav links are hidden by default.
-     They cover the full screen as a dropdown when the hamburger is clicked.
-     JavaScript adds/removes the .open class to show/hide this menu. */
+  /* Full-screen overlay menu — JS adds/removes .open to show/hide */
   .nav-links {
     display: none;
     position: fixed;
@@ -1077,7 +882,7 @@ p { color: var(--text-muted); font-size: 1rem; }
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(13, 13, 20, 0.98);    /* Almost fully opaque — covers the page */
+    background: rgba(13, 13, 20, 0.98);
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -1085,33 +890,23 @@ p { color: var(--text-muted); font-size: 1rem; }
     z-index: 999;
   }
 
-  /* Show the full-screen menu when .open is applied. */
   .nav-links.open { display: flex; }
-  /* Make links bigger for easy tapping on a phone. */
   .nav-links a { font-size: 1.3rem; }
 
-  /* Show the hamburger button on mobile. */
   .hamburger { display: flex; z-index: 1001; }
 
-  /* Projects stack into a single column. */
   .projects-grid {
     grid-template-columns: 1fr;
   }
 
-  /* Keep skills in 2 columns on mobile — they're short enough. */
   .skills-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  /* Stack CTA buttons vertically. */
   .hero-cta { flex-direction: column; }
-
-  /* Reduce section padding on smaller screens. */
   .section { padding: 4rem 0; }
 }
 
-/* ── Very small phones (≤ 400px) ── */
 @media (max-width: 400px) {
-  /* Collapse skills to a single column on tiny screens. */
   .skills-grid { grid-template-columns: 1fr; }
 }
