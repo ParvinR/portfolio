@@ -12,7 +12,6 @@ if (hamburger) {
   hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('open');
     navLinks.classList.toggle('open');
-    /* Lock background scroll while the mobile menu is open. */
     document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
   });
 
@@ -31,7 +30,6 @@ function updateActiveNav() {
   const links = document.querySelectorAll('.nav-links a');
   let current = '';
 
- 
   sections.forEach(section => {
     if (window.scrollY >= section.offsetTop - 120) {
       current = section.id;
@@ -83,7 +81,7 @@ if (typingEl) {
 
       if (charIndex === 0) {
         deleting = false;
-        roleIndex = (roleIndex + 1) % roles.length; /* Wraps back to 0 after the last role */
+        roleIndex = (roleIndex + 1) % roles.length;
       }
     }
 
@@ -99,7 +97,7 @@ const observer = new IntersectionObserver(
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-        observer.unobserve(entry.target); /* Stop watching — animate only once */
+        observer.unobserve(entry.target);
       }
     });
   },
@@ -116,10 +114,6 @@ if (form) {
     e.preventDefault();
     let valid = true;
 
-    /*
-      Each entry: id matches the input's HTML id, msg is shown on failure,
-      validate (optional) returns true if value is acceptable — defaults to non-empty check.
-    */
     const allFields = [
       { id: 'name', msg: 'Please enter your name.' },
       {
@@ -131,7 +125,6 @@ if (form) {
       { id: 'message', msg: 'Please enter a message.' },
     ];
 
-    /* Filter to fields that actually exist on this page (index.html has no "subject"). */
     const fields = allFields.filter(f => document.getElementById(f.id));
 
     fields.forEach(({ id, msg, validate }) => {
@@ -196,9 +189,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 
-/* IIFE — runs immediately on load without a separate call. */
 (function setActivePage() {
-  /* location.pathname is like "/about.html"; .pop() extracts just the filename. */
   const page = location.pathname.split('/').pop() || 'index.html';
 
   document.querySelectorAll('.nav-links a').forEach(link => {
