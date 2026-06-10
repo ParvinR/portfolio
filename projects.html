@@ -1,15 +1,4 @@
 <!DOCTYPE html>
-<!--
-  projects.html — Projects Page
-  ──────────────────────────────
-  Full detail cards for all three projects:
-    1. Bayesian Optimization: Dynamic Mobile Observer Coverage (research)
-    2. Diabetes Predictor (group ML project)
-    3. Interactive React Multi-AI Tool (personal project)
-
-  Each card has an id anchor (e.g., id="bayesian") so the homepage
-  preview cards can link directly to the right entry with #bayesian.
--->
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -31,10 +20,7 @@
 </head>
 <body>
 
-  <!-- ══════════════════════════════════════════
-       NAVBAR
-       "active" is on the Projects link since we're on projects.html.
-       ══════════════════════════════════════════ -->
+
   <nav class="navbar" aria-label="Main navigation">
     <div class="container nav-inner">
       <a href="index.html" class="nav-logo">PVR<span>.</span></a>
@@ -53,10 +39,6 @@
 
   <main>
 
-    <!-- ══════════════════════════════════════════
-         PAGE HERO
-         Short introduction header at the top of the page.
-         ══════════════════════════════════════════ -->
     <header class="page-hero">
       <div class="container fade-in">
         <span class="section-label">Work</span>
@@ -66,39 +48,22 @@
     </header>
 
 
-    <!-- ══════════════════════════════════════════
-         PROJECTS GRID
-         Auto-fill grid of full-detail project cards.
-         Each card has:
-           - An icon square
-           - A metadata line (project type + institution)
-           - A title
-           - One or two description paragraphs
-           - Technology tag pills
-           - A GitHub link
-         ══════════════════════════════════════════ -->
     <section class="section">
       <div class="container">
 
-        <!-- .projects-full-grid uses auto-fill so cards wrap naturally.
-             Each card is at least 320px wide. -->
         <div class="projects-full-grid">
 
-          <!-- ── PROJECT 1: Bayesian Optimization ──
-               id="bayesian" lets the homepage "Details" link jump straight here. -->
           <article class="project-card-full fade-in" id="bayesian">
 
-            <!-- Icon square at the top. -->
             <div class="project-icon" aria-hidden="true">
               <i class="fa-solid fa-chart-line"></i>
             </div>
 
-            <!-- Metadata line: project type and where it was done. -->
             <p class="project-meta">Undergraduate Research &mdash; Queens College, CUNY</p>
 
             <h3>Bayesian Optimization: Dynamic Mobile Observer Coverage</h3>
 
-            <!-- Description paragraphs — more detail than the homepage preview. -->
+   
             <p>
               Research project supervised by Prof. Bon Sy. The work addresses the parameter
               tuning problem for a dynamic mobile observer coverage model — specifically
@@ -108,13 +73,12 @@
             <p>
               The approach applies Gaussian Processes as a surrogate model with Expected
               Improvement as the acquisition function. Experiments were implemented using
-              <!-- <code> wraps inline code/library names for monospace styling. -->
+             
               <code style="font-family: var(--font-mono); color: var(--accent-light); font-size: 0.85em;">scikit-optimize</code>
               and <code style="font-family: var(--font-mono); color: var(--accent-light); font-size: 0.85em;">GPyOpt</code>,
               with data manipulation and visualization through NumPy, Pandas, and Matplotlib.
             </p>
 
-            <!-- Technology tag pills. -->
             <div class="project-tags" aria-label="Technologies used">
               <span class="tag">Python</span>
               <span class="tag">Gaussian Processes</span>
@@ -125,9 +89,9 @@
               <span class="tag">Matplotlib</span>
             </div>
 
-            <!-- GitHub link — update href to the real repo URL. -->
+         
             <div class="project-links">
-              <a href="https://github.com/" class="project-link" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/ParvinR" class="project-link" target="_blank" rel="noopener noreferrer">
                 <i class="fa-brands fa-github" aria-hidden="true"></i> GitHub
               </a>
             </div>
@@ -135,8 +99,6 @@
           </article>
 
 
-          <!-- ── PROJECT 2: Diabetes Predictor ──
-               id="diabetes" lets the homepage link jump here. -->
           <article class="project-card-full fade-in" id="diabetes">
 
             <div class="project-icon" aria-hidden="true">
@@ -171,9 +133,6 @@
 
           </article>
 
-
-          <!-- ── PROJECT 3: React Multi-AI Tool ──
-               id="multiai" lets the homepage link jump here. -->
           <article class="project-card-full fade-in" id="multiai">
 
             <div class="project-icon" aria-hidden="true">
@@ -205,7 +164,7 @@
             </div>
 
             <div class="project-links">
-              <a href="https://github.com/" class="project-link" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/ParvinR" class="project-link" target="_blank" rel="noopener noreferrer">
                 <i class="fa-brands fa-github" aria-hidden="true"></i> GitHub
               </a>
             </div>
@@ -218,24 +177,20 @@
 
   </main>
 
-
-  <!-- ══════════════════════════════════════════
-       FOOTER — same on every page.
-       ══════════════════════════════════════════ -->
   <footer class="footer">
     <div class="container footer-inner">
       <div class="footer-social">
-        <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+        <a href="https://github.com/ParvinR" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
           <i class="fa-brands fa-github"></i>
         </a>
-        <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <a href="https://www.linkedin.com/in/parvin-ramroop" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
           <i class="fa-brands fa-linkedin"></i>
         </a>
         <a href="mailto:parvin091999@gmail.com" aria-label="Email">
           <i class="fa-solid fa-envelope"></i>
         </a>
       </div>
-      <p>&copy; 2025 Parvin V Ramroop. Built with HTML, CSS &amp; JavaScript.</p>
+      <p>&copy; 2026 Parvin V Ramroop. Built with HTML, CSS &amp; JavaScript.</p>
     </div>
   </footer>
 

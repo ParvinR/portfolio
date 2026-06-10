@@ -92,19 +92,16 @@ if (typingEl) {
 }
 
 
-const observer = new IntersectionObserver(
-  entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  },
-  { threshold: 0.12 }
-);
+function revealOnScroll() {
+  document.querySelectorAll('.fade-in:not(.visible)').forEach(el => {
+    if (el.getBoundingClientRect().top < window.innerHeight - 60) {
+      el.classList.add('visible');
+    }
+  });
+}
 
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+window.addEventListener('scroll', revealOnScroll);
+revealOnScroll();
 
 
 const form = document.getElementById('contact-form');

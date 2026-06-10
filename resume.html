@@ -1,18 +1,5 @@
 <!DOCTYPE html>
-<!--
-  resume.html — Resume Page
-  ──────────────────────────
-  Displays a PDF resume with two options:
-    - Download PDF button (saves the file to the user's computer)
-    - Open in New Tab button (shows it in the browser's PDF viewer)
-  The embedded <iframe> renders the PDF inline on the page.
-  Until assets/resume.pdf exists, a placeholder message is shown.
 
-  TO ADD YOUR RESUME:
-    1. Place your PDF at assets/resume.pdf
-    2. Remove the <div id="resume-placeholder"> block
-    3. Uncomment the <iframe> block below it
--->
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -20,23 +7,16 @@
   <meta name="description" content="Resume of Parvin V Ramroop — CS senior, researcher, and embedded systems engineer." />
   <title>Resume — Parvin V Ramroop</title>
 
-  <!-- Google Fonts. -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
 
-  <!-- Font Awesome for the download and file icons. -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-  <!-- Shared stylesheet. -->
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-  <!-- ══════════════════════════════════════════
-       NAVBAR
-       "active" is on the Resume link since we're on resume.html.
-       ══════════════════════════════════════════ -->
   <nav class="navbar" aria-label="Main navigation">
     <div class="container nav-inner">
       <a href="index.html" class="nav-logo">PVR<span>.</span></a>
@@ -55,10 +35,6 @@
 
   <main>
 
-    <!-- ══════════════════════════════════════════
-         PAGE HERO
-         Short header introducing the resume page.
-         ══════════════════════════════════════════ -->
     <header class="page-hero">
       <div class="container fade-in">
         <span class="section-label">Resume</span>
@@ -68,34 +44,26 @@
     </header>
 
 
-    <!-- ══════════════════════════════════════════
-         RESUME SECTION
-         Download/open buttons followed by the embedded PDF viewer.
-         ══════════════════════════════════════════ -->
     <section class="resume-section">
       <div class="container">
 
-        <!-- Two action buttons above the PDF area. -->
         <div class="resume-actions fade-in">
-
-          <!-- "download" attribute tells the browser to save the file
-               instead of opening it, and names the saved file. -->
-          <a href="assets/resume.pdf" download class="btn btn-primary">
+          <a href="images/resume.pdf" download class="btn btn-primary">
             <i class="fa-solid fa-download" aria-hidden="true"></i> Download PDF
           </a>
 
-          <!-- Opens the PDF in a new browser tab using the browser's built-in PDF viewer. -->
-          <a href="assets/resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+         
+          <a href="images/resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
             <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Open in New Tab
           </a>
 
         </div>
 
-        <!-- The PDF embed container. -->
+
         <div class="resume-embed fade-in">
 
           <iframe
-            src="assets/resume.pdf"
+            src="images/resume.pdf"
             title="Parvin V Ramroop Resume"
             aria-label="Resume PDF viewer">
           </iframe>
@@ -108,23 +76,20 @@
   </main>
 
 
-  <!-- ══════════════════════════════════════════
-       FOOTER — same on every page.
-       ══════════════════════════════════════════ -->
   <footer class="footer">
     <div class="container footer-inner">
       <div class="footer-social">
-        <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+        <a href="https://github.com/ParvinR" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
           <i class="fa-brands fa-github"></i>
         </a>
-        <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <a href="https://www.linkedin.com/in/parvin-ramroop" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
           <i class="fa-brands fa-linkedin"></i>
         </a>
         <a href="mailto:parvin091999@gmail.com" aria-label="Email">
           <i class="fa-solid fa-envelope"></i>
         </a>
       </div>
-      <p>&copy; 2025 Parvin V Ramroop. Built with HTML, CSS &amp; JavaScript.</p>
+      <p>&copy; 2026 Parvin V Ramroop. Built with HTML, CSS &amp; JavaScript.</p>
     </div>
   </footer>
 
