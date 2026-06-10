@@ -164,6 +164,27 @@ if (form) {
 }
 
 
+const carousel = document.querySelector('.carousel');
+if (carousel) {
+  const slides = [
+    { src: 'images/headshot.jpg', alt: 'Parvin V Ramroop' },
+    { src: 'images/dojo.jpg',     alt: 'Parvin with the Purple Dragon martial arts team' },
+  ];
+  let current = 0;
+  const img = document.getElementById('carousel-img');
+
+  setInterval(() => {
+    img.style.opacity = '0';
+    setTimeout(() => {
+      current = (current + 1) % slides.length;
+      img.src = slides[current].src;
+      img.alt = slides[current].alt;
+      img.style.opacity = '1';
+    }, 600);
+  }, 3000);
+}
+
+
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', e => {
     const target = document.querySelector(anchor.getAttribute('href'));
