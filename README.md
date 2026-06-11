@@ -19,7 +19,7 @@ The site has five pages, a dark purple theme, responsive design for mobile and d
    Parvin V Ramroop
 
 2. **What is the purpose of your portfolio website?**  
-   To give potential employers and collaborators a clear picture of who I am and what I can do. I want someone at a company like Lockheed Martin to be able to visit this site, look at my projects and resume, and feel confident reaching out.
+   To give potential employers and collaborators a clear picture of who I am and what I can do. I want someone at a defense or aerospace company to be able to visit this site, look at my projects and resume, and feel confident reaching out.
 
 3. **Who is the target audience?**  
    Mostly defense and aerospace recruiters, but also general tech employers. Professors and research collaborators are a secondary audience.
@@ -28,10 +28,10 @@ The site has five pages, a dark purple theme, responsive design for mobile and d
    My strongest languages are C++, Java, and Python. I also work with JavaScript, React, SQL, and HTML/CSS. On the research side I have experience with Bayesian Optimization, Gaussian Processes, and machine learning tools like scikit-optimize, GPyOpt, NumPy, Pandas, and Matplotlib. For tools and environment I use Git, VS Code, Eclipse, PowerShell, AWS, and MySQL.
 
 5. **What projects or work will you showcase?**  
-   Three projects: my Bayesian Optimization research from Queens College, a Java-based Diabetes Predictor I helped build with a team, and a React tool I built for structured multi-AI collaboration between Claude and ChatGPT.
+   Three projects: my Bayesian Optimization research from Queens College, a Java-based Diabetes Predictor I helped build with a team, and a React tool I built for structured multi AI collaboration between Claude and ChatGPT.
 
 6. **How will you describe yourself in a short professional bio?**  
-   I am a Computer Science senior at Queens College with hands-on research experience, a background in embedded systems and machine learning, and a long-term career path toward defense and aerospace engineering. After graduation I plan to join the Air National Guard and eventually pursue an embedded systems role at Lockheed Martin, while working toward an online MS in Electrical Engineering at the University of Colorado.
+   I am a Computer Science senior at Queens College with hands-on research experience, a background in embedded systems and machine learning, and a long-term career path toward defense and aerospace engineering. After graduation I plan to join the Air National Guard and eventually pursue an embedded systems role at a defense or aerospace company, while working toward an online MS in Electrical Engineering.
 
 7. **What pages will your site include?**  
    Home, About, Projects, Resume, and Contact.
@@ -43,7 +43,7 @@ The site has five pages, a dark purple theme, responsive design for mobile and d
    C++, Java, Python, JavaScript, React, HTML, CSS, SQL, Git, VS Code, Eclipse, PowerShell, AWS, MySQL, NumPy, Pandas, Matplotlib, scikit-optimize, GPyOpt.
 
 10. **What achievements or experiences are worth highlighting?**  
-    Undergraduate research in Bayesian Optimization under Prof. Bon Sy at Queens College. A custom Random Forest classifier built from scratch in Java that achieved 94% accuracy on diabetes prediction data. A React-based multi-AI collaboration tool. A remote MySQL database deployed on AWS RDS for a structured query system. I also hold a Purple Dragon Black Belt and have been a martial arts instructor since 2019. I am a Red Cross Certified Lifeguard and CPR certified. I have worked as a private tutor in math, science, and programming.
+    Undergraduate research in Bayesian Optimization under Prof. Bon Sy at Queens College. A custom Random Forest classifier built from scratch in Java that achieved 94% accuracy on diabetes prediction data. A React-based multi AI collaboration tool. A remote MySQL database deployed on AWS RDS for a structured query system. I also hold a Purple Dragon Black Belt and have been a martial arts instructor since 2019. I am a Red Cross Certified Lifeguard and CPR certified. I have worked as a private tutor in math, science, and programming.
 
 11. **What call-to-action should visitors take?**  
     I want visitors to view my projects, check my resume, and reach out through the contact form or directly by email.
@@ -64,7 +64,7 @@ The site has five pages, a dark purple theme, responsive design for mobile and d
    Bold and technical with a dark theme. I wanted something that feels like it belongs in the engineering and defense world, not a generic light-mode portfolio.
 
 2. **What color scheme will you use and why?**  
-   Deep charcoal background (#0d0d14) with purple accents (#7c3aed and #a78bfa). I chose purple partly because it matches my martial arts background (Purple Dragon) and partly because it stands out from the sea of blue tech portfolios.
+   Deep charcoal background (#0d0d14) with purple accents (#7c3aed and #a78bfa). I chose purple partly because it matches my martial arts background (Purple Dragon) and partly because it stands out from the sea of blue tech portfolios. I also checked to see if it passed the contrast test.
 
 3. **What fonts will you use for headings and body text?**  
    Playfair Display for headings because it is elegant and serious. DM Sans for body text because it is clean and easy to read. JetBrains Mono for code snippets and tech tags.
