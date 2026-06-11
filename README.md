@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-I built this portfolio to represent myself professionally as I approach graduation from Queens College (CUNY) with a degree in Computer Science. The goal was to create something that feels like me -- not just a list of skills, but a real picture of who I am, what I have built, and where I am headed. I want employers in defense and aerospace to be able to land on this site and immediately understand my background, my work, and how to reach me.
+I built this portfolio to represent myself professionally as I approach graduation from Queens College (CUNY) with a degree in Computer Science. The goal was to create something that feels like me, not just a list of skills, but a real picture of who I am, what I have built, and where I am headed. I want employers in defense and aerospace to be able to land on this site and immediately understand my background, my work, and how to reach me.
 
 The site has five pages, a dark purple theme, responsive design for mobile and desktop, and interactive features built with vanilla JavaScript. It is hosted on GitHub Pages.
 
